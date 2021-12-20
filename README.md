@@ -91,3 +91,41 @@ T(n)=O(n^3)           #cubic time complexity
 - Brute force algorithms
 - Divide and conquer algorithms
 - Backtracking algorithms
+
+
+
+> Sorting Algorithms
+- output is monotonic (each element < or > than previous element)
+- output is a permutation (reorder but retain all elements)
+- input data should be stored in a data structure which allows random access rather than one that allows only sequential access
+
+Classification parameters  
+- computational complexity
+- memory
+- recursion
+- stability (stable sorting algos maintain relative order of records with equal keys)
+
+Comparison  of algos  
+
+n => no of records to be sorted  
+comparison sorts cant perform > O(nlog(n))
+
+---
+comparison sorts
+<pre>
+Name        best    average     worst   memory  stable  method          description
+quicksort   nlog(n) nlog(n)     n^2     log(n)  no      partitioning    
+megesort    nlog(n) nlog(n)     nlog(n) n       yes     merging    
+heapsort    nlog(n) nlog(n)     nlog(n) 1       no      selection    
+bubblesort  n       n^2         n^2     1       yes     exchanging
+cyclesort   n^2     n^2         n^2     1       no      selection
+</pre>
+---
+## Links
+
+- [https://pkg.go.dev/std](https://pkg.go.dev/std)  Golang Standard library
+- [https://pkg.go.dev/reflect](https://pkg.go.dev/reflect)
+- [https://devdocs.io/go/](https://devdocs.io/go/)
+- [https://go.dev/doc/](https://go.dev/doc/)
+- [https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8](https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8)
+- [https://en.wikipedia.org/wiki/Memory_management](https://en.wikipedia.org/wiki/Memory_management)
