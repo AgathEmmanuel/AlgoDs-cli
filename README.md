@@ -121,6 +121,80 @@ bubblesort  n       n^2         n^2     1       yes     exchanging
 cyclesort   n^2     n^2         n^2     1       no      selection
 </pre>
 ---
+
+
+> Memory Allocation in Golang
+- Go prefers to allocate memory in stack
+- Heap contains values referenced outside of a function (go structs, static constants at start of a fuction)
+- Go has a stack per go routine
+- non-generational concurrent, tri-color mark and sweep garbage collector
+
+
+## Time and Space Complexity
+
+- Time complexity is calculated irrespective of the machine the coder runs on and the time taken
+- The relation or graph between size of input data and the time taken respectively
+- Slope of the graph varies with machine but the relationship remains same
+- Time complexity => Function of relationship between size of input data and time taken
+- Relation of how time grows with respect to growth in input data
+- O(1) < O(log(n)) < O(n)
+
+## Math
+
+- Computer Science includes topics like Operating Systems, Databases, Networking, Artificial intelligence, Embedded systems, Data analytics etc.
+
+Boolean Algebra => Logic Gates  
+Set Theory  
+Combinatorics  
+Calculus  
+Linear Algebra  
+Graph Theory  
+Probability  => Networking and communication 
+Number Theory => Cryptography  
+Relational Algebra => Databases  
+Algorithm  
+
+> Logics
+- BigInteger
+- Bit Manipulation
+- Modulo Arithmetic, Modulo exponentiation and Modulo inverse 
+- Sieve of Eratosthenes and Segmented Sieve
+- LCM,GCD (Euclid Algorithm) and Extended Euclid Algorithm
+- Catalan Numbers
+- Lucas Theorem
+- Chinese Remainder Theorem
+- Series and Sequences 
+- Catalan Numbers 
+- Inclusion Exclusion Principle 
+- Advanced counting techniques – Polya counting, burnsides lemma
+- Stirling, eulerian, harmonic, Bernoulli, Fibonacci numbers
+- Basic probability and Conditional probability
+- Random variables, probability generating functions
+- Bernoulli, Binomial, Poisson, normal distribution
+- Counting
+- Basic principles – Pigeon hole principle, addition, multiplication rules
+- Inclusion-exclusion
+
+> Calculus  
+
+Applications in Physics and Engineering
+
+- perfect shapes like square, circle, cubes can be solved using geometry and algebra concepts. But in nature, everything is not in perfect shape and size. Suppose you need to find the area of an irregular shape, with the help of calculus concepts easily you can find it.
+- calculating weight of structures
+- astronomy
+- patient diagnosis
+- determining behavioural patterns
+- determining the amount of the necessary materials to construct curved shape constructions (e.g dome over a sports arena) and also to measure the weight of that structure. 
+- to determine the exact length of power cable needed to connect two substations, which are miles away from each other
+- to launch an exploratory probe, they must consider the different orbiting velocities of the Earth and the planet the probe is targeted for, as well as other gravitational influences like the sun and the moon
+- to determine the exact rate of growth in a bacterial culture when different variables such as temperature and food source are changed
+- to calculate the Centre of Mass, Centre of Gravity and Mass Moment of Inertia of a sports utility vehicle
+- to calculate the velocity and trajectory of an object, predict the position of planets, and understand electromagnetism
+- to evaluate survey data to help develop business plans for different companies
+- to determine the rate of a chemical reaction and to determine some necessary information of Radioactive decay reaction
+
+
+
 ## Links
 
 - [https://pkg.go.dev/std](https://pkg.go.dev/std)  Golang Standard library
@@ -129,3 +203,18 @@ cyclesort   n^2     n^2         n^2     1       no      selection
 - [https://go.dev/doc/](https://go.dev/doc/)
 - [https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8](https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8)
 - [https://en.wikipedia.org/wiki/Memory_management](https://en.wikipedia.org/wiki/Memory_management)
+- [https://www.memorymanagement.org/glossary/](https://www.memorymanagement.org/glossary/)
+- [https://www.educative.io/blog/become-golang-developer](https://www.educative.io/blog/become-golang-developer)
+- [https://www.educative.io/blog/the-7-most-important-software-design-patterns](https://www.educative.io/blog/the-7-most-important-software-design-patterns)
+- [https://www.educative.io/blog/google-coding-interview](https://www.educative.io/blog/google-coding-interview)
+- [https://www.educative.io/blog/google-coding-interview-questions](https://www.educative.io/blog/google-coding-interview-questions)
+- [https://www.educative.io/blog/behavioral-interviews-how-to-prepare-and-ace-interview-questions](https://www.educative.io/blog/behavioral-interviews-how-to-prepare-and-ace-interview-questions)
+- [https://www.geeksforgeeks.org/math-in-competitive-programming/](https://www.geeksforgeeks.org/math-in-competitive-programming/)
+- [https://www.toppr.com/bytes/calculus-in-everyday-life/](https://www.toppr.com/bytes/calculus-in-everyday-life/)
+- [https://math.mit.edu/~djk/calculus_beginners/chapter00/section02.html](https://math.mit.edu/~djk/calculus_beginners/chapter00/section02.html)
+- [https://www.researchgate.net/publication/259669422_The_Roles_of_Mathematics_in_Computer_Science](https://www.researchgate.net/publication/259669422_The_Roles_of_Mathematics_in_Computer_Science)
+- [https://math.stackexchange.com/questions/1488418/what-is-the-use-of-calculus](https://math.stackexchange.com/questions/1488418/what-is-the-use-of-calculus)
+- [https://allusesof.com/math/51-amazing-uses-of-calculus-in-real-life/](https://allusesof.com/math/51-amazing-uses-of-calculus-in-real-life/)
+- [https://medium.com/@john_marsh7/uses-of-calculus-in-real-life-1bee5ea9f32d](https://medium.com/@john_marsh7/uses-of-calculus-in-real-life-1bee5ea9f32d)
+- [https://discuss.codechef.com/t/programming-contest-detailed-syllabus-along-with-example-problems/17791](https://discuss.codechef.com/t/programming-contest-detailed-syllabus-along-with-example-problems/17791)
+- [https://www.codingninjas.com/blog/2020/07/27/must-do-math-for-competitive-programming/](https://www.codingninjas.com/blog/2020/07/27/must-do-math-for-competitive-programming/)
