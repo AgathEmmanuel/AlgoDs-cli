@@ -1,5 +1,6 @@
 /*
 
+max comparisons : N (no of elements)
 
 */
 

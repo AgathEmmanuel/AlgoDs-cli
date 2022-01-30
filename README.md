@@ -155,6 +155,7 @@ Relational Algebra => Databases
 Algorithm  
 
 > Logics
+
 - BigInteger
 - Bit Manipulation
 - Modulo Arithmetic, Modulo exponentiation and Modulo inverse 
