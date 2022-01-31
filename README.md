@@ -26,11 +26,13 @@ Solving a problem involves
 - Linked lists
 - Ordered lists
 - unordered lists
+
 > Homogeneous data structures
 ---
 ---
 - 2D arrays
 - multi arrays  
+
 > Linear data structures
 ---
 
@@ -39,6 +41,7 @@ traverse all elements in single run
 elements arranged sequentially  
 
 ---
+
 - Array
 - Lists  [sequence of elements connected to another via links]
 - Sets
@@ -46,6 +49,7 @@ elements arranged sequentially
 - Queues
 - Stacks
 - Heaps  [heap property: value stored on each node >= to its children(max heap)]
+
 > Non-Linear data structures
 ---
 
@@ -54,9 +58,11 @@ cannot traversal all elements in a single run
 memory utilization efficiency higher than linear type  
 
 ---
+
 - Trees
 - Tables
 - Containers  
+
 > Dynamic data structures
 ---
 ---
@@ -69,32 +75,10 @@ memory utilization efficiency higher than linear type
 
 Structures formed using classes and objects  
 
-> Complexity and Performance analysis
-
-- CPU time
-- memory
-- disk
-- network  
-<pre>
-processing time  
-resource cosumption  
-complexity: how the algorithms scale when no.of input parameters increase  
-
-Big O notation  
-T(n)=O(n)             #linear time complexity  
-T(n)=O(log n)         #logartihmic time complexity  
-T(n)=O(n^2)           #quadratic time complexity  
-T(n)=O(n^3)           #cubic time complexity  
-
-</pre>
-
-- Brute force algorithms
-- Divide and conquer algorithms
-- Backtracking algorithms
-
 
 
 > Sorting Algorithms
+
 - output is monotonic (each element < or > than previous element)
 - output is a permutation (reorder but retain all elements)
 - input data should be stored in a data structure which allows random access rather than one that allows only sequential access
@@ -123,21 +107,161 @@ cyclesort   n^2     n^2         n^2     1       no      selection
 ---
 
 
+> Recursive Algorithms
+
+	   	    1-f(4)
+       	  2-f(3)	        7-f(3)
+      3-f(3)    6-f(1)     8-f(1)    9-f(0)
+ 4-f(1)  5-f(0)
+
+Flow of execution
+1: f(4)
+2: f(3)
+3: f(2)
+4: f(1)
+5: f(0)
+6: f(1)
+7: f(2)
+8: f(1)
+9: f(0)
+
+- Space complexity is not constant in recursion programs, because the function calls are stored in stack
+- at any particular point of time no two function call at the same level of recursion will be in the stack at the same time
+- only calls that are interlinked with each other will be in the stack at the same time
+- space complexity is equal to the height of the tree
+- the longest chain starting from root till leaf is the space complexity
+
+2 Types of Recursion
+- Linear recursion
+ F(n) = F(n-1) + F(n-2)
+- Divide and conquer
+ F(n) = F(n/2) + O(1)
+
+Divide and conquer Recurences
+
+Form: 
+T(x) = a'1.T(b'1.x+F'1(x)) + a'2.T(b'2.x+F'2(x)) +.... + a'k(b'k.x+F'k(x)) + g(x)
+		for x >= x'0        where x'0 is some constant
+
+
+
+
+
+## Time and Space Complexity - Design and Analysis of Algorithms
+
+> Complexity and Performance analysis
+
+- CPU time
+- memory
+- disk
+- network  
+<pre>
+processing time  
+resource cosumption  
+complexity: how the algorithms scale when no.of input parameters increase  
+
+Big O notation  
+T(n)=O(n)             #linear time complexity  
+T(n)=O(log n)         #logartihmic time complexity  
+T(n)=O(n^2)           #quadratic time complexity  
+T(n)=O(n^3)           #cubic time complexity  
+
+</pre>
+
+- Brute force algorithms
+- Divide and conquer algorithms
+- Backtracking algorithms
+
+
 > Memory Allocation in Golang
+
 - Go prefers to allocate memory in stack
 - Heap contains values referenced outside of a function (go structs, static constants at start of a fuction)
 - Go has a stack per go routine
 - non-generational concurrent, tri-color mark and sweep garbage collector
 
 
-## Time and Space Complexity
+> Calculations
 
 - Time complexity is calculated irrespective of the machine the coder runs on and the time taken
+- time complexity != total time taken
 - The relation or graph between size of input data and the time taken respectively
 - Slope of the graph varies with machine but the relationship remains same
 - Time complexity => Function of relationship between size of input data and time taken
 - Relation of how time grows with respect to growth in input data
-- O(1) < O(log(n)) < O(n)
+- In time complexity we always care about worst case when your input data grow large in size what happens
+- Always look at complexity for large and infinite data
+	 consider O(n^5+log(n))
+	 for n= 1000000= 1million
+	Time taken
+	 = 1000000^5 + log(1000000)
+	 = 1000000^5 + 6    [ since 6 sec is too small compartively it can be ingored]
+	~= 1000000^5 
+- O(1) < O(log(n)) < O(n) < O(nlog(n)) <  O(2^n)
+- cases when y=x, y=2x, y=3x, y=5x+2 etc.. here the values of actual time is different but all grows linearly
+- here we do not care about the constants so we ignore all constants in time complexity
+	O(5n^4 + 4n^3+ n^2 + 2) 
+	~= O(n^4 + n^3 + n^2)
+	~= O(n^4)
+- Big O notation gives the uppers bound of the time complexity relationship
+	f(n) = O(g(n))
+	ifty ~ infinity
+	lim n->ifty [ f(n) / g(n) ] < ifty
+	O(5n^4 + 4n^3+ n^2 + 2)  =~ O(n^4)
+	f(n) = 5n^4 + 4n^3+ n^2 + 2 
+	g(n) = n^4
+
+	 lim n->ifty [ 5n^4 + 4n^3+ n^2 + 2 / n^4 ] 
+	= lim n->ifty [ 5 + 4/n + 1/n^2 + 2/n^4 ] 
+	= [ 5 + 4/ifty + 1/ifty + 2/ifty ] 
+	= [ 5 + 0 + 0 + 0 ] 
+	= 5 < ifty
+
+- Big Omega Om() notation is the opposite of O(n) , it gives the lower bound
+	lim n->ifty [ f(n) / g(n) ] > 0
+- Theta notation is the combination of both Big O and Big Omega
+	0 < lim n->ifty [ f(n) / g(n) ] < ifty
+- little O notation gives the upper bound which is not a strict upper bound but a loose upper bound
+	Big O	 	f=O(g)  f <= g  [ f grows slower than g ]
+	Little O 	f=O(g)  f <  g  [ f grows strictly slower than g ]
+
+	lim n->ifty [ f(n) / g(n) ] = 0
+- little Omega notation gives the lower bound which is not a strict upper bound but a loose upper bound
+	Big Om	 	f=Om(g)  f >= g  [ f grows faster than g ]
+	Little Om 	f=Om(g)  f >  g  [ f grows strictly faster than g ]
+
+	lim n->ifty [ f(n) / g(n) ] = ifty
+
+
+- Space complexity = Auxilary space (extra or temporary space used by an algorithm) + Input space
+	space complexity of all sorting algorithms is O(n)
+	in sorting algos no new arrays are getting created so its taking constant space complexity
+	merge sort uses O(n) auxiliary space
+	insertion sort and heap sort uses O(1) auxiliary space
+- calculating O(n) for loops
+for i:=1; i<=n {
+	for j:=1; j<=k; j++ {
+		// operation taking time t
+	}
+	i=i+k
+}
+
+O(kt * no of iterations in outer loop)
+when i=1,  1+1k
+when i=2,  1+2k
+when i=3,  1+3k ...
+when i=x,  1+xk 
+1+xk <= n
+xk <= n-1
+x  =  (n-1)/k   [ no of iteration in outer loop ]
+
+O(kt * (n-1)/k) 
+= O(nt) 
+= O(n)
+
+
+
+
 
 ## Math
 

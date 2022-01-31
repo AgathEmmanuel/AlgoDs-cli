@@ -2,6 +2,10 @@
 
 max comparisons : N (no of elements)
 
+
+
+Time complexity:  O(N)
+
 */
 
 
