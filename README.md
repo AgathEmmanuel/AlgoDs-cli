@@ -131,17 +131,219 @@ Flow of execution
 - space complexity is equal to the height of the tree
 - the longest chain starting from root till leaf is the space complexity
 
-2 Types of Recursion
+There are 2 Types of Recursion
 - Linear recursion
  F(n) = F(n-1) + F(n-2)
 - Divide and conquer
  F(n) = F(n/2) + O(1)
+
+
+Linear Recurences 
+
+Form: 
+F(x) = a'1.F(x-1) + a'2.F(x-2) + a'3.f(x-3) + ... + a'n.f(x-n)
+
+Sma(i=1,k)[F(n)]     => sum (sigma) of all i till k  
+
+F(x) = Sma(i=1,n)[ a'i.F(x-i) ] = 1  
+		     => n : is the order of recurence
+
+example : fibonacci number
+
+F(n) = F(n-1) + F(n-2)
+
+C => some constant
+
+F(n) =  C^n 
+     =  C^(n-1) + C^(n-2) 
+
+C^n - C^(n-1) - C^(n-2) = 0
+C^2 - C^1 - 1 = 0
+ roots of this eqn
+ C = [-b +- (b^2-4ac)^(1/2)] / 2a
+ C = (1 +- 5^(1/2)) / 2
+
+ C1 = (1 + 5^(1/2)) / 2
+ C2 = (1 - 5^(1/2)) / 2
+
+F(n) = C'1.(C1)^n + C'2.(C2)^n
+F(n) = C'1.((1 + 5^(1/2)) / 2)^n + C'2.((1 - 5^(1/2)) / 2)^n
+
+Based on the statement:
+no.of roots = no.of answers already present
+C1 and C2 are the 2 roots 
+so we can substitute that in 
+
+
+F(0) = 0
+F(1) = 1
+
+F(0) = C'1.((1 + 5^(1/2)) / 2)^0 + C'2.((1 - 5^(1/2)) / 2)^0
+     = C'1 + C'2
+C'1  = -C'2
+
+
+F(1) = 1
+F(1) = C'1.((1 + 5^(1/2)) / 2)^1 + C'2.((1 - 5^(1/2)) / 2)^1
+1 = C'1.((1 + 5^(1/2)) / 2)^1 + C'2.((1 - 5^(1/2)) / 2)^1
+
+since  C'1  = -C'2
+1 = C'1.((1 + 5^(1/2)) / 2)^1 - C'1.((1 - 5^(1/2)) / 2)^1
+C'1 = 1/5^(1/2)
+C'1 = -1/5^(1/2)
+
+F(n) = 1/5^(1/2).((1 + 5^(1/2)) / 2)^n + -1/5^(1/2).((1 - 5^(1/2)) / 2)^n
+This is the formula for n'th fibonacci number
+
+To get the time complexity from the above formula
+F(n) = 1/5^(1/2).((1 + 5^(1/2)) / 2)^n - 1/5^(1/2).((1 - 5^(1/2)) / 2)^n
+
+(1 - 5^(1/2)) / 2  can be ignored as n -> infinity
+and constants can be ignored
+
+Time complexity= O((1 + 5^(1/2)) / 2)^n  for nth fibonacci number
+Time complexity= O(1.618)^n  for nth fibonacci number
+1 + 5^(1/2)   => is also known as golden ratio
+this results in the program not giving an output for even smaller numbers
+and was in hanging state, its because the exponential time complexity is very bad
+
+
+
+Solving to find complexity in recurrence relation of divide and conqure :
+
+F(N) = F(N-1) + F(N-2)
+
+
 
 Divide and conquer Recurences
 
 Form: 
 T(x) = a'1.T(b'1.x+F'1(x)) + a'2.T(b'2.x+F'2(x)) +.... + a'k(b'k.x+F'k(x)) + g(x)
 		for x >= x'0        where x'0 is some constant
+
+T(n) = 3T(N/2) + (1/2)T(N/6) + (4N^3-1)
+
+a'1 = 3
+b'1 = N/2
+a'2 = 1/2
+b'2 = N/6
+g(n) = 	4N^3-1
+
+T(n) = 2T(N/2) + (N-1)
+
+a'1 = 2
+b'1 = N/2
+g(n) = N-1   [ time taken to operate on answer provided by the recursion call 2T(N/2) ]
+
+[             ] array of lenth N
+[ n/2 ] [ n/2 ] array is divided into 2 subarrays and when they are sorted by recursion
+		then these arrays are merged in time N-1 comparisons
+T(n) = T(N/2) + T(N/2) + (N-1)
+     = 2T(N/2) + (N-1)           recurence relation of merge sort
+
+
+Solving to find complexity in recurrence relation of divide and conqre :
+- plug and check
+- Masters theorem
+- Akra Bazzi formula
+
+Itg(1,x)[F(n)] 	=>  Integral of function F(n) where the lower limit is 1 and upper limit is x
+
+Itg[u^p]du = u^(p+1) / (p+1)
+
+Tta  => theta
+
+T(x) =  Tta ( x^p + (x^p).Itg(1,x)[ G(u)/u^(p+1) ]du )
+
+Sma(i=1,k)[F(n)]     => sum (sigma) of all i till k  
+
+a'1.(b'1)^p + a'2.(b'2)^p + ..... = 1
+
+we have to find p such that the below equation is satisfied
+
+Sma(i=1,k)[ a'i.(b'i)^p ] = 1  
+
+
+example: 
+
+Binary search:
+T(N) = T(N/2) + C	; C -> constant
+
+Merge sort
+T(N) = 2T(N/2) + (N-1)
+
+a'1 = 2
+b'1 = 1/2
+g(n) = N-1
+
+
+Sma(i=1,k)[ a'i.(b'i)^p ] = 1  
+a'1.(b'1)^p = 1
+2 . (1/2)^p = 1
+p = 1
+substituting p in Akra Bazzi Formula
+
+T(x) =  Tta ( x^p + (x^p).Itg(1,x)[ G(u)/u^(p+1) ]du )
+     =  Tta ( x^1 + (x^1).Itg(1,x)[ (u-1)/u^(1+1) ]du )
+     =  Tta ( x + (x).Itg(1,x)[ (u-1)/u^2 ]du )
+     =  Tta ( x + (x).Itg(1,x)[ (1/u - 1/u^2) ]du )
+     =  Tta ( x + (x).Itg(1,x)[ (1/u - 1/u^2) ]du )
+     =  Tta ( x + (x).(1,x)[ log(u) + 1/u ] )
+     =  Tta ( x + (x).[ log(x) + 1/x - ( log(1) + 1/1 )]
+     =  Tta ( x + x.[ log(x) + 1/x -  0 - 1 )]
+     =  Tta ( x + x.log(x) + 1 - x )
+     =  Tta ( x + x.log(x) + 1 - x )
+     =  Tta ( x.log(x) + 1 )
+     =  Tta ( x.log(x) )	# constants are ignored
+     =  Tta ( x.log(x) )	# this is the time complexity
+
+for an array of size N
+merge sort complexity = O(N.log(N))
+
+
+example:
+T(N) = 4T(N/3) + (3/7).T(1N/4) + N^3
+
+a'1 = 4
+b'1 = 1/3
+a'1 = 3/7
+b'1 = 1/4
+g(n)= N^3
+
+Sma(i=1,k)[ a'i.(b'i)^p ] = 1  
+4.(1/3)^p + (3/7).(1/4)^p = 1
+when p = 0 ,  4 + 3/7 > 1
+	      4.4 > 1
+when p = 1 ,  4/3 + 3/28 > 1
+	      1.3 + .1 > 1
+	      1.4 > 1
+when p = 2 ,  4/9 + 3/112
+	      .44 + .02 
+	      .42 < 1
+
+Hence  1 < p < 2
+
+when p < power of g(n), 
+then answer is g(n)
+
+here   g(n) = x^2
+ p < 2   # that is the power of g(n)
+hence, answer is  O(g(n))
+		= O(x^2)
+
+Proof:
+
+substituting p in Akra Bazzi Formula
+
+T(x) =  Tta ( x^p + (x^p).Itg(1,x)[ G(u)/u^(p+1) ]du )
+     =  Tta ( x^p + (x^p).Itg(1,x)[ u^2/u^(p+1) ]du )
+     =  Tta ( x^p + (x^p).Itg(1,x)[ u^(1-p) ]du )
+     =  Tta ( x^p + (x^p).(1,x)[ u^(2-p)/(2-p) ]du )
+     =  Tta ( x^p + (x^p).[ x^(2-p)/(2-p) - 1^(2-p)/(2-p) ] )
+     =  Tta ( x^p + [ x^(2)/(2-p) - x^p ] )  
+     =  Tta ( x^(2)/(2-p) )  	  # note: here since 1<p<2, x^p is a less dominating term copared to x^2 and can be ignored
+     =  Tta ( x^(2) )     
+ 
 
 
 
