@@ -159,6 +159,7 @@ F(n) =  C^n
 
 C^n - C^(n-1) - C^(n-2) = 0
 C^2 - C^1 - 1 = 0
+characteristic equation of recurrence  
  roots of this eqn
  C = [-b +- (b^2-4ac)^(1/2)] / 2a
  C = (1 +- 5^(1/2)) / 2
@@ -206,6 +207,162 @@ Time complexity= O(1.618)^n  for nth fibonacci number
 1 + 5^(1/2)   => is also known as golden ratio
 this results in the program not giving an output for even smaller numbers
 and was in hanging state, its because the exponential time complexity is very bad
+
+
+
+Equal roots  
+
+F(n) = 2F(n-1) + F(n-2)
+
+F(n) = C^n = 2C^(n-1) + C^(n-2)
+     
+   C^2 - 2.C^n + 1 = 0	double root C=1
+
+if C is repeated r times then 
+C^n, n.C^n, ....  n^(r-1).C^n     are all solutions 
+
+hence we can take 2 roots as solutions  
+1, n.C^n  =  1, n
+
+F(n) = C'1.C^n + C'2.n.C^n  
+     = C'1 + C'2.n 
+
+F(0) = 0 = C'1
+F(1) = 1 = C'1 + C'2
+F(n) = n    => Time complexity  O(n)
+
+
+
+Non homogenious linear recurrences
+
+F(n) = C'1.F(n-1) + C'2.F(n-2) + C'3.F(n-3) +..... +  C'd.F(n-d) + g(n)
+
+the extra function g(n) makes this recurrence non homogenious
+
+To solve: 
+replace g(n) by 0 and solve usually   
+
+F(n) = 4F(n-1) + 3^n
+
+F(1) = 1
+
+3^n = 0
+
+C^n = 4C^(n-1) 
+C^n - 4C^(n-1) = 0
+C - 4 = 0
+C = 4 
+
+Homogeneous solution  
+F(n) = C'1.(C^n)
+F(n) = C'1.(4^n)
+
+
+put g(n) on one side and find particular solutions
+
+F(n) - 4F(n-1) = 3^n
+
+guessing something similar to g(n)
+if g(n) = n^2, guess a polynomial of degree 2 
+
+guess1 : F(n) = C.3^n
+
+C.3^n - 4.C.3^(n-1) = 3^n
+
+C = -3 
+
+solution  F(n) = -3^(n+1)
+
+Add both solutions together  
+
+F(n) = C'1.4^(n) + -3^(n+1)
+
+F(1) = 1
+
+(C'1).4 - 3^2 = 1 
+
+C'1 = 5/2
+
+
+Solution:    F(n) = (5/2).4^n - 3^(n+1)
+
+
+To guess a particular solution:
+
+If g(n) is exponential, guess something similar or same
+ex: g(n) = 2^n + 3^n
+
+F(n) = a.2^n + b.3^n
+
+
+If g(n) is polynonmial of some degree  
+g(n) = n^2 - 1 
+
+F(n) = a.n^2 + b.n + c  
+
+
+If g(n) is a combination
+g(n) = 2^n + n
+
+F(n) = a.2^n + (bn + c) 
+
+If in some case when you guess F(n) = a.2^n
+and if it fails, then try  F(n) = (a.n + b).2^n
+and if that fails increase the degree   F(n) = ((a^2).n + b.n + c).2^n
+
+
+ex: 
+F(n) = 2F(n-1) + 2^n
+F(0) = 1 
+
+put 2^n = 0 
+F(n) = 2F(n-1) 
+F(n) = C^n
+
+C^n - 2.C^(n-1) = 0 
+C = 2 
+
+Guess particular solution  
+g(n) = 2^n
+
+guess: 
+F(n) = a.2^n
+
+a.2^n = 2.a.2^(n-1) + 2^n
+
+2^(n-1) will get cancelled  
+
+a = a + 1 , wrong since no answer coming so go for the next guess  
+
+F(n) = (a.n + b).2^n
+
+(a.n + b).2^n = 2(a.(n-1) + b).2^(n-1) + 2^n
+
+a.n + b = a.n - a + b + 1
+
+a = 1
+
+F(n) = (1.n + b).2^n
+     = (n).2^n		# here be is discarded
+
+F(n) = (n).2^n		
+
+Taking some of both the equations 
+
+F(n) = (C'1).2^n + (n).2^n
+F(0) = 1 
+     = C'1 + 0 
+
+C'1 = 1
+
+
+F(n) = 2^n + (n).2^n
+
+Complexity of this equation = O( n.2^n )
+
+
+
+
 
 
 
