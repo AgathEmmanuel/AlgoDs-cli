@@ -1,11 +1,49 @@
 # Data Structures and Algorithms
 
 
+## High level Checklist
+
+- Recursion  
+- Arrays  
+- Strings  
+- Matrices  
+- Sparse Matrix  
+- Polynomial Representation  
+- Linked list  
+- Stack  
+- Queues  
+- Trees  
+- Binary Tree
+- Binary Search Trees  
+- AVL Trees  
+- Search Trees  
+- Heap  
+- Hashing  
+- Graphs  
+
+
+- Searching and Sorting  
+- Greedy algorithms  
+- Dynamic programming  
+- Pattern searching  
+- String algorithms  
+- Backtracking  
+- Divide and Conquer  
+- Geometric algorithms  
+- Mathematical algorithms  
+- Mathematical algorithms  
+- Bit algorithms  
+- Grph algorithms  
+- Randomized algorithms  
+
+
+
+## Types of data structures
+
 data structure  =>  organization of data  in computer memory
 - helps to minimize the storage space
 - improve the ease of operating upon those data or easy retrival, processing etc
 
-> Types of data structures
 
 - linear   ----[memory structure is linear]
 - nonlinear   ----[memory structure is non linear]
@@ -505,6 +543,7 @@ T(x) =  Tta ( x^p + (x^p).Itg(1,x)[ G(u)/u^(p+1) ]du )
 
 
 
+CAP Theorem (cap theorem)
 
 ## Time and Space Complexity - Design and Analysis of Algorithms
 
@@ -622,7 +661,7 @@ O(kt * (n-1)/k)
 
 
 
-## Math
+## Maths  
 
 - Computer Science includes topics like Operating Systems, Databases, Networking, Artificial intelligence, Embedded systems, Data analytics etc.
 
@@ -636,6 +675,29 @@ Probability  => Networking and communication
 Number Theory => Cryptography  
 Relational Algebra => Databases  
 Algorithm  
+
+
+prime numbers  
+square root  
+Factors  
+HCF/GCD  
+LCM  
+Permutaitons  
+Combinations  
+Harmonic series 
+probability 
+Fermics theorems  
+Chinese reminder theorem 
+Eulers product formula
+
+
+
+
+
+
+
+
+
 
 > Logics
 
@@ -659,6 +721,13 @@ Algorithm
 - Basic principles – Pigeon hole principle, addition, multiplication rules
 - Inclusion-exclusion
 
+
+
+> Bitwise Operators with number system  
+ 
+
+
+
 > Calculus  
 
 Applications in Physics and Engineering
@@ -679,12 +748,31 @@ Applications in Physics and Engineering
 
 
 
+## OOPS  
+
+> notes about golang regarding OOPS  
+
+Go has no classes, no objects, no exceptions, and no templates  
+Go has no type hierarchy  
+Go has garbage collection and built-in concurrency  
+
+
+Structs  
+
+type Book struct {  
+  Name string  
+  Good bool  
+}  
+
+
+
 ## Links
 
 - [https://pkg.go.dev/std](https://pkg.go.dev/std)  Golang Standard library
 - [https://pkg.go.dev/reflect](https://pkg.go.dev/reflect)
 - [https://devdocs.io/go/](https://devdocs.io/go/)
 - [https://go.dev/doc/](https://go.dev/doc/)
+- [https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540](https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540)
 - [https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8](https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8)
 - [https://en.wikipedia.org/wiki/Memory_management](https://en.wikipedia.org/wiki/Memory_management)
 - [https://www.memorymanagement.org/glossary/](https://www.memorymanagement.org/glossary/)
