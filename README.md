@@ -97,12 +97,32 @@ memory utilization efficiency higher than linear type
 
 ---
 
+- Binary Tree 
+- Binary Search Tree 
+- Binary Heap 
+- Hashing 
+
 - Trees
 - Tables
 - Containers  
 
+
+> Static data structures
+---
+
+In Static data structure the size of the structure is fixed.
+The content of the data structure can be modified but without changing the memory space allocated to it.
+
+---
+
+- array
+
 > Dynamic data structures
 ---
+
+an organization or collection of data in memory that has the flexibility to grow or shrink in size,
+enabling a programmer to control exactly how much memory is utilized
+
 ---
 - dictionaries
 - sequences
@@ -112,6 +132,404 @@ memory utilization efficiency higher than linear type
 > Structural Design Pattern  
 
 Structures formed using classes and objects  
+
+
+
+### Data Structures in Depth  
+```
+####################    Array
+
+Array is a collection of items stored at contiguous memory locations.
+Store multiple items of the same type together.
+Calculate the position of each element by simply adding an offset to a base value, the memory location of the first element of the array 
+
+
+if size of array = n.
+
+Accessing Time: O(1) [This is possible because elements
+                      are stored at contiguous locations]   
+Search Time:   O(n) for Sequential Search: 
+               O(log n) for Binary Search [If Array is sorted]
+Insertion Time: O(n) [The worst case occurs when insertion 
+                     happens at the Beginning of an array and 
+                     requires shifting all of the elements]
+Deletion Time: O(n) [The worst case occurs when deletion 
+                     happens at the Beginning of an array and 
+                     requires shifting all of the elements]
+
+
+####################    Linked List
+
+Linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers.
+
+
+Types of Linked List : 
+
+======= Singly Linked List: 
+every node stores address or reference of the next node in the list and the last node has the next address or reference as NULL
+
+======= Doubly Linked List: 
+two references are associated with each node, One of the reference points to the next node and one to the previous node. 
+we can traverse in both directions and for deletion, we don’t need to have explicit access to the previous node.
+
+======= Circular Linked List: 
+all nodes are connected to form a circle.
+there is no NULL at the end. 
+it can be a singly circular linked list or a doubly circular linked list. 
+any node can be made as starting node. 
+
+
+
+Accessing time of an element : O(n)
+Search time of an element : O(n)
+Insertion of an Element : O(1) [If we are at the position 
+                                where we have to insert 
+                                an element] 
+Deletion of an Element : O(1) [If we know address of node
+                               previous the node to be 
+                               deleted] 
+
+
+####################    Stack
+
+Linear data structure which follows a particular order in which the operations are performed. 
+The order may be LIFO(Last In First Out) or FILO(First In Last Out)
+
+
+serves as a collection of elements two principal operations: 
+push, which adds an element to the collection
+pop, which removes the last element that was added.
+
+In stack both the operations of push and pop take place at the same end that is top of the stack. 
+It can be implemented by using both array and linked list.  
+
+Insertion : O(1)
+Deletion :  O(1)
+Access Time : O(n) [Worst Case]
+Insertion and Deletion are allowed on one end. 
+
+
+
+####################    Queue
+
+Linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO). 
+
+serves as a collection of elements, with two principal operations: 
+enqueue, the process of adding an element to the collection. 
+(The element is added from the rear side) 
+dequeue the process of removing the first element that was added. 
+(The element is removed from the front side). 
+It can be implemented by using both array and linked list. 
+
+Insertion : O(1)
+Deletion  : O(1)
+Access Time : O(n) [Worst Case]
+
+======== Circular Queue 
+reduces wastage of space in case of array implementation, as the insertion of the (n+1),’th element is done at the 0’th index if it is empty. 
+
+
+####################    Binary Tree
+
+Tree whose elements have at most 2 children is called a binary tree. Since each element in a binary tree can have only 2 children, we typically name them the left and right child
+
+A Binary Tree node contains 
+ Data
+ Pointer to left child
+ Pointer to right child
+
+
+A Binary Tree can be traversed in two ways: 
+
+Depth First Traversal: 
+Inorder (Left-Root-Right), Preorder (Root-Left-Right), and Postorder (Left-Right-Root) 
+
+Breadth-First Traversal: 
+Level Order Traversal 
+
+
+
+
+The maximum number of nodes at level 'l' = 2^l
+
+Maximum number of nodes = 2^(h + 1) - 1
+Here h is height of a tree. Height is considered 
+as the maximum number of edges on a path from root to leaf.
+
+Minimum possible height =  ceil(Log2(n+1)) - 1  
+
+In Binary tree, number of leaf nodes is always one 
+more than nodes with two children.
+
+Time Complexity of Tree Traversal: O(n)
+
+
+####################    Binary Search Tree
+
+Node-based binary tree data structure which has the following properties:
+
+    left subtree of a node contains only nodes with keys lesser than the node’s key.
+    right subtree of a node contains only nodes with keys greater than the node’s key.
+    left and right subtree each must also be a binary search tree.
+
+
+
+Search :  O(h)
+Insertion : O(h)
+Deletion : O(h)
+Extra Space : O(n) for pointers
+
+h: Height of BST
+n: Number of nodes in BST
+
+If Binary Search Tree is Height Balanced, 
+then h = O(Log n) 
+
+Self-Balancing BSTs such as AVL Tree, Red-Black
+Tree and Splay Tree make sure that height of BST 
+remains O(Log n)
+
+
+BST provides moderate access/search (quicker than Linked List and slower than arrays). 
+BST provides moderate insertion/deletion (quicker than Arrays and slower than Linked Lists). 
+
+
+####################    Heap
+
+Special Tree-based data structure in which the tree is a complete binary tree. 
+That means all levels are completely filled except possibly the last level and the last level has all keys as left as possible
+This property of makes them suitable to be stored in an array. 
+
+Generally, Heaps can be of two types:
+
+    Max-Heap: In a Max-Heap the key present at the root node must be greatest among the keys present at all of it’s children. The same property must be recursively true for all sub-trees in that Binary Tree.
+    Min-Heap: In a Min-Heap the key present at the root node must be minimum among the keys present at all of it’s children. The same property must be recursively true for all sub-trees in that Binary Tree.
+
+
+
+Get Minimum in Min Heap: O(1) [Or Get Max in Max Heap]
+Extract Minimum Min Heap: O(Log n) [Or Extract Max in Max Heap]
+Decrease Key in Min Heap: O(Log n)  [Or Decrease Key in Max Heap]
+Insert: O(Log n) 
+Delete: O(Log n)
+
+
+####################    Hashing
+
+Process of mapping keys, values into the hash table by using a hash function. 
+Provides faster access to elements. 
+Efficiency of mapping depends on the efficiency of the hash function used.
+
+
+Hash Function: 
+A function that converts a given big input key to a small practical integer value.
+The mapped integer value is used as an index in the hash table. 
+A good hash function should have the following properties 
+
+- Efficiently computable. 
+- Should uniformly distribute the keys (Each table position equally likely for each key) 
+
+
+Hash Table: 
+An array that stores pointers to records corresponding to a given phone number. 
+An entry in a hash table is NIL if no existing phone number has a hash function value equal to the index for the entry. 
+
+Collision Handling: 
+Since a hash function gets us a small number for a key which is a big integer or string, 
+there is the possibility that two keys result in the same value. 
+The situation where a newly inserted key maps to an already occupied slot in the hash table is called collision 
+and must be handled using some collision handling technique. 
+Following are the ways to handle collisions: 
+
+- Chaining: 
+The idea is to make each cell of the hash table point to a linked list of records that have the same hash function value. 
+Chaining is simple but requires additional memory outside the table. 
+- Open Addressing: 
+In open addressing, all elements are stored in the hash table itself. 
+Each table entry contains either a record or NIL. 
+When searching for an element, we one by one examine table slots until the desired element is found 
+or it is clear that the element is not in the table. 
+ 
+
+Space : O(n)
+Search    : O(1) [Average]    O(n) [Worst case]
+Insertion : O(1) [Average]    O(n) [Worst Case]
+Deletion  : O(1) [Average]    O(n) [Worst Case]
+
+Hashing seems better than BST for all the operations. 
+But in hashing, elements are unordered and in BST elements are stored in an ordered manner. 
+Also, BST is easy to implement but hash functions can sometimes be very complex to generate. 
+In BST, we can also efficiently find floor and ceil of values. 
+
+
+
+####################    Graph
+
+Non-linear data structure consisting of nodes and edges. 
+Nodes are also referred to as vertices 
+Edges are lines or arcs that connect any two nodes in the graph, a finite set of ordered pair of the form (u, v)
+The pair is ordered because (u, v) is not same as (v, u) in case of directed graph(di-graph)
+The pair of form (u, v) indicates that there is an edge from vertex u to vertex v
+The edges may contain weight/value/cost
+
+
+V -> Number of Vertices.
+E -> Number of Edges.
+
+Graph can be classified on the basis of many things, below are the two most common classifications :
+
+Direction :
+    Undirected Graph : The graph in which all the edges are bidirectional.
+    Directed Graph   : The graph in which all the edges are unidirectional.
+Weight :
+    Weighted Graph   : The Graph in which weight is associated with the edges.
+    Unweighted Graph : The Graph in which there is no weight associated to the edges.
+
+Graph can be represented in many ways, below are the two most common representations :
+
+Adjacency Matrix Representation
+Adjacency List Representation
+
+V -> Number of Vertices.
+E -> Number of Edges.
+
+
+Time Complexities in case of Adjacency Matrix :
+Traversal :(By BFS or DFS) O(V^2)
+Space : O(V^2)
+
+Time Complexities in case of Adjacency List :
+Traversal :(By BFS or DFS) O(V + E)
+Space : O(V+E)
+
+
+
+####################    Trie:
+
+a type of k-ary search tree, a tree data structure used for locating specific keys from within a set.
+these keys are most often strings, with links between nodes defined not by the entire key, but by individual characters.
+
+efficient for searching words in dictionaries, 
+search complexity with Trie is linear in terms of word (or key) length to be searched. 
+if we store keys in binary search tree, 
+a well balanced BST will need time proportional to M * log N, 
+where M is maximum string length and N is number of keys in tree. 
+Using trie, we can search the key in O(M) time. So it is much faster than BST.
+
+Hashing also provides word search in O(n) time on average. 
+But the advantages of Trie are there are no collisions (like hashing) so worst case time complexity is O(n). 
+With Trie, we can find all words beginning with a prefix (This is not possible with Hashing). 
+The only problem with Tries is they require a lot of extra space. 
+
+
+
+
+Insert time : O(M) where M is the length of the string.
+Search time : O(M) where M is the length of the string.
+Space : O(ALPHABET_SIZE * M * N) where N is number of 
+        keys in trie, ALPHABET_SIZE is 26 if we are 
+        only considering upper case Latin characters.
+Deletion time: O(M)
+
+
+####################    Segmnet tree:
+
+a tree data structure used for storing information about intervals, or segments
+
+
+used when there are a lot of queries on a set of values. 
+The queries involve minimum, maximum, sum, update etc on a input range of given set. 
+These are implemented using array.
+
+
+
+Construction of segment tree : O(N)
+Query : O(log N)
+Update : O(log N)
+Space : O(N) [Exact space = 2 * N-1]
+
+
+####################    Suffix tree:
+
+
+a suffix tree is a compressed trie containing all the suffixes of the given text as their keys and positions in the text as their values. Suffix trees allow particularly fast implementations of many important string operations.
+
+
+its mainly used to search a pattern in a text. 
+we preprocess the text so that search operation can be done in time linear in terms of pattern length. 
+Other pattern searching algorithms like KMP, Z, etc take time proportional to text length. 
+This is really a great improvement because length of pattern is generally much smaller than text.
+
+Imagine we have stored complete work of William Shakespeare and preprocessed it. 
+You can search any string in the complete work in time just proportional to length of the pattern. 
+But using Suffix Tree may not be a good idea when text changes frequently like text editor, etc.
+
+Suffix Tree is compressed trie of all suffixes, so following are very abstract steps to build a suffix tree from given text.
+
+- Generate all suffixes of given text.
+- Consider all suffixes as individual words and build a compressed trie.
+
+
+
+####################    Advanced Data Structure
+
+
+========  Fenwick tree:
+A Fenwick tree or binary indexed tree is a data structure that can efficiently update elements and calculate prefix sums in a table of numbers.
+
+========  Suffix array:
+a suffix array is a sorted array of all suffixes of a string. It is a data structure used in, among others, full text indices, data compression algorithms, and the field of bibliometrics.
+
+========  AVL tree:
+an AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property.
+
+========  Splay tree:
+A splay tree is a binary search tree with the additional property that recently accessed elements are quick to access again. Like self-balancing binary search trees, a splay tree performs basic operations such as insertion, look-up and removal in O(log n) amortized time.
+
+========  B-tree:
+a B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. The B-tree generalizes the binary search tree, allowing for nodes with more than two children.
+
+========  Red-blcak tree:
+a red–black tree is a kind of self-balancing binary search tree. Each node stores an extra bit representing "color", used to ensure that the tree remains balanced during insertions and deletions
+
+========  K Dimensional Tree:
+a k-d tree is a space-partitioning data structure for organizing points in a k-dimensional space. k-d trees are a useful data structure for several applications, such as searches involving a multidimensional search key and creating point clouds. 
+
+
+========  Treap (A Randomized Binary Search Tree)
+========  Ternary Search Tree
+========  Interval Tree
+========  Implement LRU Cache
+========  Sort numbers stored on different machines
+========  Find the k most frequent words from a file
+========  Given a sequence of words, print all anagrams together
+========  Tournament Tree (Winner Tree) and Binary Heap
+========  Decision Trees – Fake (Counterfeit) Coin Puzzle (12 Coin Puzzle)
+========  Spaghetti Stack
+========  Data Structure for Dictionary and Spell Checker?
+========  Cartesian Tree
+========  Cartesian Tree Sorting
+========  Sparse Set
+========  Centroid Decomposition of Tree
+========  Gomory-Hu Treek
+
+
+
+####################    Abstract Data type (ADT)
+
+
+its a type (or class) for objects whose behaviour is defined by a set of value and a set of operations.
+its called abstract because it gives an implementation-independent view
+
+The definition of ADT only mentions what operations are to be performed but not how these operations will be implemented. 
+It does not specify how data will be organized in memory and what algorithms will be used for implementing the operations. 
+The process of providing only the essentials and hiding the details is known as abstraction.
+
+- List ADT
+- Stack ADT
+- Queue ADT
+
+```
 
 
 
@@ -608,6 +1026,8 @@ T(n)=O(n^3)           #cubic time complexity
 	O(5n^4 + 4n^3+ n^2 + 2)  =~ O(n^4)
 	f(n) = 5n^4 + 4n^3+ n^2 + 2 
 	g(n) = n^4
+
+ifty => infinity  
 
 	 lim n->ifty [ 5n^4 + 4n^3+ n^2 + 2 / n^4 ] 
 	= lim n->ifty [ 5 + 4/n + 1/n^2 + 2/n^4 ] 
